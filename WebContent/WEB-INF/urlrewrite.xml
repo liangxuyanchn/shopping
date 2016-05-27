@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN" "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+<urlrewrite>
+	 <!-- 跳转首页 -->
+	<rule>
+		<from>/home.html</from>
+		<to>/toHomePage</to>
+	</rule>
+	<!-- 集卡服务-二级页面 -->
+	<rule>
+		<from>/jkhome.html</from>
+		<to>/toJKHome</to>
+	</rule>
+	<!-- 集卡服务-快速进入 -->
+	<rule>
+		<from>/jkSoon.html</from>
+		<to>/toJKSoon</to>
+	</rule>
+	
+	<!-- 用户退出登录(包括货主和供应商) -->
+	<rule>
+		<from>/exit.html</from>
+		<to>/userLogout</to>
+	</rule>
+	
+	<!-- 货主注册后-跳至货主认证界面 判断Session-->
+	<rule>
+		<from>/shipperExamine.html</from>
+		<to>/toShipperExamine</to>
+	</rule>
+	
+	<!-- 车队注册后-跳至货主认证界面 判断Session-->
+	<rule>
+		<from>/fleetExamine.html</from>
+		<to>/toFleetExamine</to>
+	</rule>
+	<!-- 车队进入个人中心-->
+	<rule>
+		<from>/centerOff/(.*)</from>
+		<to>/toFleetCenter?iframeOpen=$1</to>
+	</rule>
+	
+	<!-- 货主进入个人中心-->
+	<rule>
+		<from>/centerOfs/(.*)</from>
+		<to>/toShipperCenter?iframeOpen=$1</to>
+	</rule>
+	
+	<!-- 货主找车(判断认证状态)-->
+	<rule>
+		<from>/findCar.html</from>
+		<to>/toFindCar</to>
+	</rule>
+	
+	<!-- 货主创建订单后，等待询价状态(判断订单状态，显示数据)-->
+	<rule>
+		<from>/customerInquiry/([0-9_]+)</from>
+		<to>/toCustomerInquiry?orderId=$1</to>
+	</rule>
+	
+	<!-- 进入货主反馈信息(判断订单状态，显示数据)-->
+	<rule>
+		<from>/feedBack/([0-9_]+)</from>
+		<to>/toShipperFeedBack?orderId=$1</to>
+	</rule>
+	<!-- 货主完善订单信息反馈后，等待审核状态(判断订单状态，显示数据)-->
+	<rule>
+		<from>/orderReview/([0-9_]+)</from>
+		<to>/toShipperOrderReview?orderId=$1</to>
+	</rule>
+	<!-- 车队进入报价界面(判断订单状态)-->
+	<rule>
+		<from>/postOffer/([0-9_]+)_(.*)</from>
+		<to>/fleetPostOffer?orderId=$1&amp;offerId=$2</to>
+	</rule>
+	<!-- 车队提交报价，进入等待回复(判断订单状态和报价状态)-->
+	<rule>
+		<from>/waitingResponse/([0-9_]+)</from>
+		<to>/fleetWaitingResponse?orderId=$1</to>
+	</rule>
+	<!-- 进入车队分配车辆  -->
+	<rule>
+		<from>/vehicleAssign/([0-9_]+)</from>
+		<to>/fleetVehicleAssign?orderId=$1</to>
+	</rule>
+	<!-- 车队提交车辆分配信息后，等待审核状态(判断订单状态，显示数据)-->
+	<rule>
+		<from>/fleetOrderReview/([0-9_]+)</from>
+		<to>/toFleetOrderReview?orderId=$1</to>
+	</rule>
+	
+	<!-- 货主查看订单详情-->
+	<rule>
+		<from>/soInfo/([0-9_]+)</from>
+		<to>/shipperOrderInfo?orderId=$1</to>
+	</rule>
+	
+	<!-- 货主查看撤销订单详情-->
+	<rule>
+		<from>/sRevokedOInfo/([0-9_]+)</from>
+		<to>/shipperRevokedOrderInfo?orderId=$1</to>
+	</rule>
+	
+	<!-- 车队查看订单详情-->
+	<rule>
+		<from>/foInfo/([0-9_]+)</from>
+		<to>/fleetOrderInfo?orderId=$1</to>
+	</rule>
+	
+	<!-- 车队查看过期订单详情-->
+	<rule>
+		<from>/fExpiredOInfo/([0-9_]+)</from>
+		<to>/fleetExpiredOrderInfo?orderId=$1</to>
+	</rule>
+	
+	
+	
+	<!-- ========================================后台========================================= -->
+	<!-- 客服个人中心-->
+	<rule>
+		<from>/manageSystem/service.html</from>
+		<to>/toServiceCenter</to>
+	</rule>
+	<!-- 管理员个人中心-->
+	<rule>
+		<from>/manageSystem/admin.html</from>
+		<to>/toAdminCenter</to>
+	</rule>
+	
+	
+	
+	
+	
+</urlrewrite>
